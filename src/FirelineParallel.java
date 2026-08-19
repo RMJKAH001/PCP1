@@ -1,5 +1,3 @@
-import java.util.concurrent.ForkJoinPool;
-
 public class FirelineParallel {
 private static final int DEFAULT_MAXIMUM_STEPS = 50000;
     private static final double DEFAULT_TOLERANCE = 0.05;

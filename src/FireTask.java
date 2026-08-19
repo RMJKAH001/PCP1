@@ -4,7 +4,7 @@ public class FireTask extends RecursiveTask<FireMapParallel.StepResult>{
 
     private final int rowLo, rowHi, colLo, colHi;
     private final FireMapParallel map;
-    static final int CUTOFF = 5;
+    static final int CUTOFF = 16;
 
     public FireTask(int inRowLow, int inRowHi, int inColLow, int inColHi, FireMapParallel inMap){
         this.rowLo = inRowLow;
@@ -19,7 +19,7 @@ public class FireTask extends RecursiveTask<FireMapParallel.StepResult>{
         int rowSize = rowHi - rowLo;
         int columnSize = colHi - colLo;
 
-        if (((rowSize) < CUTOFF) && ((columnSize) < CUTOFF)){ // if row length and column length is within cutoff
+        if (((rowSize) <= CUTOFF) && ((columnSize) <= CUTOFF)){ // if row length and column length is within cutoff
             //System.out.println("Hit cutoff");
             FireMapParallel.StepResult result =  map.updateRegion(map.getMode(), rowLo, rowHi, colLo, colHi);
             //System.out.println("returning");
