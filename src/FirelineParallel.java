@@ -54,7 +54,6 @@ private static final int DEFAULT_MAXIMUM_STEPS = 50000;
             while (stepsCompleted < maximumSteps) {
                 result = map.step();
                 stepsCompleted++;
-                //System.out.println("steps: " + stepsCompleted);
 
                 if (mode == FireMapParallel.Mode.WILDFIRE) {
                     converged = result.getBurningCells() == 0

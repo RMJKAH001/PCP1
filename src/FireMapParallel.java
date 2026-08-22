@@ -189,9 +189,8 @@ public class FireMapParallel{
      */
     public final StepResult step() {
         prepareNextState();
-        //StepResult result = updateRegion(mode, 1, rows - 1, 1, columns - 1);
+        //Use new task class for parallel solving algorithm
         StepResult result = fjPool.invoke(new FireTask(1, rows-1, 1, columns-1, this));
-
         completeStep();
         return result;
     }
@@ -223,10 +222,7 @@ public class FireMapParallel{
         int burningCells = 0;
         int newlyIgnitedCells = 0;
 
-        //System.out.println("updating...");
-
         for (int row = rowStart; row < rowEnd; row++) {
-            //System.out.println("row: " + row);
             for (int column = columnStart;
                     column < columnEnd; column++) {
                 TerrainType type = terrain[row][column];
